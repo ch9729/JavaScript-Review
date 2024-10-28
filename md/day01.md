@@ -4,12 +4,12 @@
 ### let 
 ```
 let message;
-message = "Hello";  //문자열을 저장합니다. 
+message = "Hello";  //문자열을 저장한다. 
 ```
 - 문자열이 변수와 연결된 메모리 영역에 저장되었기 때문에, 변수명을 이용해 문자열에 접근할 수 있게 되었다.
 ```
 let message;
-message = "Hello";  //문자열을 저장합니다. 
+message = "Hello";  //문자열을 저장한다. 
 
 alert(message); //변수에 저장된 값을 보여준다.
 ```
@@ -199,3 +199,69 @@ alert(age); // NaN, 형 변환이 실패
 |`null`|0|
 |`true and false`|1과 0|
 |`string`|문자열의 처음과 끝 공백이 제거된다. 공백 제거 후 남아있는 문자열이 없다면 0, 그렇지 않다면 문자열에서 숫자를 읽는다. 변환에 실패하면 NaN이 된다.|
+
+```
+alert( Number("   123   ") ); // 123
+alert( Number("123z") );      // NaN ("z"를 숫자로 변환하는 데 실패함)
+alert( Number(true) );        // 1
+alert( Number(false) );       // 0
+```
+- null과 undefined은 숫자형으로 변환 시 결과가 다르다는 점에 유의. null은 0이 되고 undefined는 NaN이 된다.
+
+### 불린형으로 변환
+- 숫자 0, 빈 문자열, null, undefined, NaN과 같이 직관적으로도 '비어있다고'느껴지는 값들은 false가 된다.
+- 그 외의 값은 true로 변환된다.
+
+|전달받은 값|형 변환 후|
+|---|---|
+|`0, null, undefined, NaN, ""`|false|
+|`그 외의 값`|true|
+
+```
+alert( Boolean(1) ); // 숫자 1(true)
+alert( Boolean(0) ); // 숫자 0(false)
+
+alert( Boolean("hello") ); // 문자열(true)
+alert( Boolean("") ); // 빈 문자열(false)
+alert( Boolean("0") ); // true
+alert( Boolean(" ") ); // 공백이 있는 문자열도 비어있지 않은 문자열이기 때문에 true로 변환.
+```
+
+### 요약
+- 문자, 숫자, 논리형으로의 형 변환은 자주 일어나는 형 변환이다.
+- 숫자형으로 변환은 수학 관련 연산시 일어난다. Number(valse)로도 형 변환을 할수 있다.
+- 불린형으로 변환은 논리 연산 시 발생한다. Boolean(valse)으로도 변환할수 있다.
+
+---
+## 문자열
+- 문자열은 작은따옴표, 큰따옴표, 백틱으로 감쌀수 있다.
+- 백틱은 표현식 ${...}로 감싸고 이를 백틱으로 감싼 문자열 중간에 넣어주면 해당 표현식을 문자열 중간에 쉽게 삽입할수 있다.
+```
+// strings
+console.log('hello, world');
+
+let email = 'mario@thenetninja.co.uk';
+console.log(email);
+
+// string concatenation
+let firstName = 'Brandon';
+let lastName = 'Sanderson';
+
+let fullName = firstName + ' ' + lastName;
+
+console.log(fullName);
+
+// getting individual characters
+console.log(fullName[2]);
+
+// string length
+console.log(fullName.length);
+
+// string methods
+console.log(fullName.toUpperCase());
+let result = fullName.toLocaleLowerCase();
+console.log(result);
+
+let index = email.indexOf('@');
+console.log('index of the @ sign:', index);
+```
