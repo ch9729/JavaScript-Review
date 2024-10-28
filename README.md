@@ -1,4 +1,4 @@
-## [1일차] (http://naver.com)
+## [1일차] (https://github.com/ch9729/JavaScript-Review/blob/main/md/day01.md)
 > 1. 변수
 > 2. 기본 데이터 타입
 > 3. alert, prompt, confirm
