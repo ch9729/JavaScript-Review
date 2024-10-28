@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>형변환</title>
+</head>
+<body>
+    <script>
+        let value = true;   //boolean 타입
+        console.log(typeof value);
+
+        value = String(value);  //형변환 String 타입
+        console.log(typeof value);
+
+        //숫자형 변환
+        console.log(typeof("6"/"2")); //문자열이 자동으로 숫자로 바뀜
+        let num= Number("123");
+        console.log(typeof num);
+
+        let age = Number("숫자가 안되는123")
+        console.log(age)  //NaN(숫자가 아님)
+        // 숫자변환시 특수한 경우 null => 0, ture => 1, false => 0
+
+        //불린형으로 변환
+        console.log(Boolean(1));    //true
+        console.log(Boolean(0));    //false
+        console.log(Boolean("헬로"));   //trun
+        console.log(Boolean(""));   //false
+
+    </script>
+</body>
+</html>
