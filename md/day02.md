@@ -2,7 +2,7 @@
 
 ### 함수 선언
 - 함수 방식을 이용하면 함수를 만들 수 있다. 함수 선언 방식은 아래와 같이 작성 할수 있다.
-<img src='/img/img.png>
+<img src='/img/img.png'>
 ```javaScript
 function showMessage() {
     alert("안녕하세요!");
