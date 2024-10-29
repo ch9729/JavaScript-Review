@@ -9,3 +9,7 @@
 
 ## [2일차](https://github.com/ch9729/JavaScript-Review/blob/main/md/day02.md)
 > 1. 함수 function
+> 2. 함수 표현식 Function Expression, 콜백 함수
+> 3. 화살표 함수 arrow function
+> 4. 배열 Arrays
+> 5. 객체 Object
