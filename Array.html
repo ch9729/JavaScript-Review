@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 Array</title>
+</head>
+<body>
+    <script>
+        let fruits = ["사과","오렌지","포도"];
+
+        console.log(fruits[0])
+        console.log(fruits[1])
+        console.log(fruits[2])
+        console.log(fruits.length)
+
+        //수정
+        fruits[0] = "배";
+        console.log(fruits[0])
+
+        //추가
+        fruits.push("라임");
+        console.log(fruits[3])
+        console.log(fruits.length)
+
+        //삭제
+        fruits.pop("라임");
+        console.log(fruits[3])
+        console.log(fruits.length)
+
+        //상수로 배열 선언 (새로운 배열로 바꿀수 없다.)
+        const myEggs = ['하나','둘','셋'];
+    
+        //추가
+        myEggs.push("넷");
+        console.log(myEggs)
+
+        //새로운 배열주소를 바꿀수 없다
+        //myEggs = [];  에러발생
+
+        //반복
+        for(i = 0; i < myEggs.length; i++) {
+            console.log(myEggs[i])
+        }
+
+        for(const egg of myEggs) {
+            console.log(egg)
+        }
+
+        myEggs.forEach(egg => console.log(egg))
+    </script>
+</body>
+</html>

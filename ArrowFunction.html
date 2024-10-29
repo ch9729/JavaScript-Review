@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표 함수</title>
+</head>
+<body>
+    <script>
+        // let sum = function(a,b){
+        //     return a + b;
+        // }
+
+        //화살표 함수
+        let sum = (a,b) => a+b;
+
+        console.log(sum(22,3))  //25
+
+        let double = n => n * 2;
+
+        console.log(double(10)) //20
+
+        let sayHi = () => alert("안녕하세요.")
+
+        sayHi();
+
+        //예제
+        let age = prompt("나이를 알려주세요.")
+
+        let welcome = (age < 18) ?
+        () => alert("안녕") : () => alert("안녕하세요.")
+
+        welcome();
+
+        //문제
+        let question = confirm("동의하시겠습니까?")
+
+        let ask = question ? 
+        () => alert("동의") : () => alert("취소")
+
+
+        //let ask = confirm("동의하시겠습니까?") ?
+        //() => alert("동의") : () => alert("취소")
+
+        ask();
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 Object</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name : "John",
+            age : 30,
+            hobby : ["공부", "커피", "놀기"],
+            address : {
+                위도 : 20,
+                경도 : 50,
+                주소 : [
+                    {},{},{}
+                ]
+            }
+        };
+
+        //나이
+        console.log(user.age);
+        
+        //취미를 반복문으로 출력
+        for(i = 0; i < user.hobby.length; i++){
+            console.log(user.hobby[i])
+        }
+
+        //user.hobby.forEach((h) => console.log(h));
+
+        //위도
+        console.log(user.address.위도)
+    </script>
+</body>
+</html>

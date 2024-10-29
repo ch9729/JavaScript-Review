@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수와 스코프</title>
+</head>
+<body>
+    <script>
+        // 함수
+        function add(x,y) {
+            return x + y;
+        }
+
+        console.log(add(2,3))
+
+        //스코프 전역변수, 지역변수(함수 안에서만 사용)
+        let name = '홍길동';
+
+        function showMessage(){
+            let message = "Hi "
+            console.log(message + name)
+        }
+
+        console.log(name);
+        //console.log(message); 지역변수라서 함수 내에서만 사용 가능
+        showMessage();
+
+        //함수 표현식(함수를 변수에 할당)
+        let sayHi = function() {
+            alert("헬로우")
+        }
+
+        sayHi();
+
+        let func = sayHi;// 함수의 복사
+
+        func();
+
+        //콜백함수 함수를 값처러 매겨변수에 전달
+        function ask(question, yes, no) {
+            if(confirm(question)) yes()
+            else no();
+        }
+        // 함수의 선언은 항상 호이스팅이 되므로 위치는 중요하지 않음
+        // 변수 var는 호이스팅이 되는데 var는 재할당도 되므로 사용x
+        function showOk() {
+            alert('동의')
+        }
+
+        function showCancel() {
+            alert('취소')
+        }
+
+        ask("동의하나요?", showOk, showCancel);
+    </script>
+</body>
+</html>
