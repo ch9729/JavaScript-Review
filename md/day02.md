@@ -81,13 +81,13 @@ alert( from ); // Ann
 ```
 
 - 리턴(반환값)
-<img src="/img/img2.png.png" alt="">
+<img src="/img/img2.png" alt="">
 
 - 리턴이 없는 경우
-<img src="/img/img3.png.png" alt="">
+<img src="/img/img3.png" alt="">
 
 - 리턴이 있을 때
-<img src="/img/img4.png.png" alt="">
+<img src="/img/img4.png" alt="">
 
 
 ---
@@ -317,7 +317,7 @@ let arr = new Array(item1, item2...);
 
 ---
 ## 객체 Object
-<img src="/img/img5.png.png" alt="">
+<img src="/img/img5.png" alt="">
 
 - 객체는 중괄호 {...}를 이용해 만들 수 있다. 중괄호 안에는 '키':'값'쌍으로 구성된 프로퍼티를 여러개 넣을 수 있다.
 - 중괄호{...}를 이용해 객체를 선언하는 것을 객체 리터럴이라고 부른다.
@@ -335,12 +335,12 @@ let user = {     // 객체
 alert( user.name ); // John
 alert( user.age ); // 30
 ```
-<img src="/img/img6.png.png" alt="">
+<img src="/img/img6.png" alt="">
 
-<img src="/img/img7.png.png" alt="">
+<img src="/img/img7.png" alt="">
 
 - 배열과 객체는 서로 중첩 가능
-<img src="/img/img8.png.png.png" alt="">
+<img src="/img/img8.png" alt="">
 
 ### in 연산자로 프로퍼티 속성이 있는지 확인
 - for..in반복문을 사용하면 객체의 모든 키를 순회 할수 있다.
@@ -350,3 +350,4 @@ let user = { name: "John", age: 30 };
 alert( "age" in user ); // user.age가 존재하므로 true가 출력
 alert( "blabla" in user ); // user.blabla는 존재하지 않기 때문에 false가 출력
 ```
+---
