@@ -163,3 +163,168 @@ function handleKeyboard(e) {
 ```
 
 ---
+
+## 현재시간 불러오기
+
+- html
+```javaScript
+<body>
+    <div class="clock">
+        <div id="hour">00</div>
+        <span>:</span>
+        <div id="minute">00</div>
+        <span>:</span>
+        <div id="seconds">00</div>
+    </div>
+    <button type="button" id="stop">멈춤</button>
+    <!--Script-->
+    <script src="script.js"></script>
+</body>
+```
+
+- html내 요소를 찾아 변수 지정
+```javaScript
+const hour = document.getElementById('hour');
+const minute = document.getElementById('minute');
+const seconds = document.getElementById('seconds');
+const btn = document.getElementById('stop');
+```
+
+- 날짜를 저장할 수 있고, 날짜와 관련된 메서드도 제공해주는 내장 객체 생성
+```javaScript
+    const date_now = new Date();
+    let hr = date_now.getHours();
+    let min = date_now.getMinutes();
+    let sec = date_now.getSeconds();
+```
+
+- 주기적으로 업데이트를 하기 위한 메서드 작성(new Date()와 같이 활용)
+```javaScript
+//10보다 작은 숫자는 앞에 0을 나타낸다.
+//setInterval(함수,시간) : 주기적으로 시간뒤에 함수를 실행함
+const timer = setInterval(() => {
+    const date_now = new Date();
+    //10보다 작으면 변수의 값을 바꾸다보니 const 말고 let 사용
+    let hr = date_now.getHours();     //시간
+    let min =  date_now.getMinutes(); //분
+    let sec = date_now.getSeconds();  //초
+
+    if(hr < 10) {
+        hr = "0" + hr
+    }
+    if(min < 10) {
+        min = "0" + min
+    }
+    if(sec < 10) {
+        sec = "0" + sec
+    }
+
+    //계산된 시간, 분, 초를 각각 화면에 출력
+    hour.textContent = hr;
+    minute.textContent = min;
+    seconds.textContent = sec;
+
+}, 1000); //밀리초로 계산되므로 1000 = 1초
+```
+
+- 타이머 멈춤 버튼
+```javaScript
+//setInterval 함수의 반환값을 변수에 할당해두고, clearInterval을 호출하여 반복을 중단
+btn.addEventListener('click',() => {
+    clearInterval(timer);
+})
+```
+
+#### 요약
+- new Date()를 통하여 현재의 시간, 분, 초, 요일 등을 가져올수 있다.
+- get`가져올 날`()을 통해 현재 가져올 데이터를 꺼내올수 있다.
+- setInterval(콜백함수, 시간) : '시간(ms)을 간격으로 '콜백함수'를 반복 호출 하는 함수
+- clearInterval(변수) : 반복 중단
+
+---
+
+## 스톱워치 만들기
+- html
+```javaScript
+<body>
+    <div class="container">
+      <div class="timerDisplay">00 : 00 : 00 : 000</div>
+      <div class="buttons">
+        <button id="startTimer">시작</button>
+        <button id="pauseTimer">멈춤</button>
+        <button id="resetTimer">리셋</button>
+      </div>
+    </div>
+    <!--Script-->
+    <script src="script.js"></script>
+  </body>
+```
+
+- html내 요소를 찾아 변수 지정
+```javaScript
+const startTimer = document.getElementById('startTimer');
+const pauseTimer = document.getElementById('pauseTimer');
+const resetTimer = document.getElementById('resetTimer');
+//여러변수를 한번에 선언하고 초기화
+let [milliseconds, seconds, minutes, hours] = [0,0,0,0];
+let timerDisplay = document.querySelector(".timerDisplay");
+let timer = null;
+```
+
+- 타이머 표시 함수
+```javaScript
+function displayTimer() {
+    //10ms 마다 함수 실행
+    milliseconds += 10;
+    if(milliseconds == 1000) {
+        milliseconds = 0;
+        seconds++;
+        if(seconds == 60){
+            seconds = 0;
+            minutes++;
+            if(minutes == 60){
+                minutes = 0;
+                hours++;
+            }
+        }
+    }
+    let h = hours < 10 ? "0" + hours : hours;
+    let m = minutes < 10 ? "0" + minutes : minutes;
+    let s = seconds < 10 ? "0" + seconds : seconds;
+    let ms = milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
+
+    timerDisplay.textContent = `${h} : ${m} : ${s} : ${ms}`;
+    // milliseconds는 10ms마다 증가하고 milliseconds가 1000이 되면 1초가 되며 이때 0으로 초기화 ...
+}
+```
+
+- 시작 이벤트 
+```javaScript
+startTimer.addEventListener('click',() => {
+    //클릭하면 타이머를 시작
+    if(timer != null){  //이미 타이머 실행중
+        clearInterval(timer);   //만약 시작 버튼을 여러번 클릭시 ex)참조값으로 예를 들었을때 첫번때 참조값은 쌓이지만 두번째 참조값만 없애므로 계속 실행이 진행된다.
+        //return; 이안되는 이유는 해당 이벤트를 밖으로 빠져나오므로 사용이 불가
+    }
+    timer = setInterval(displayTimer,10);   //10ms 마다 함수 실행
+});
+```
+
+- 멈춤
+```javaScript
+pauseTimer.addEventListener('click',() => {
+    clearInterval(timer);
+});
+```
+
+- 리셋
+```javaScript
+resetTimer.addEventListener('click',() => {
+    clearInterval(timer);
+    [milliseconds, seconds, minutes, hours] = [0,0,0,0];
+    timerDisplay.textContent = '00 : 00 : 00 : 000 ';
+});
+//멈추고 나면 변수들이 다시 0으로 초기화가 되며 text값들은 0으로 변경
+```
+
+---
