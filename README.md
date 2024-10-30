@@ -13,3 +13,8 @@
 > 3. 화살표 함수 arrow function
 > 4. 배열 Arrays
 > 5. 객체 Object
+
+## [3일차]
+> 1. Event효과 주사위
+> 2. Event효과 백그라운드 적용
+> 3. Event효과 클릭,키보드 입력에 따른 각각의 소리 출력

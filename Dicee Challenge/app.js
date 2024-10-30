@@ -6,8 +6,8 @@ const h1 = document.querySelector('h1');
 let r1 = Math.floor(Math.random() * 6 + 1);
 let r2 = Math.floor(Math.random() * 6 + 1);
 
-img1.setAttribute('src',`/Dicee Challenge/images/dice${r1}.png`);
-img2.setAttribute('src',`/Dicee Challenge/images/dice${r2}.png`);
+img1.setAttribute('src',`images/dice${r1}.png`);
+img2.setAttribute('src',`images/dice${r2}.png`);
 
 // 이긴 플레이어를 화면에 표시
 if(r1 > r2){
