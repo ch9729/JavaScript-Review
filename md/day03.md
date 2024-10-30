@@ -1,4 +1,4 @@
-## Event효과 주사위
+## 1. Event효과 주사위
 
 - html
 ```javaScript
@@ -39,7 +39,7 @@ img2.setAttribute('src',`images/dice${r2}.png`);
 ```
 
 ---
-## Event효과 백그라운드 적용
+## 2. Event효과 백그라운드 적용
 
 - html
 ```javaScript
@@ -76,7 +76,7 @@ color2.addEventListener('input', () => {
 ```
 
 ---
-## Event효과 클릭,키보드 입력에 따른 각각의 소리 출력
+## 3. Event효과 클릭,키보드 입력에 따른 각각의 소리 출력
 - html
 ```javaScript
 <body>
@@ -164,7 +164,7 @@ function handleKeyboard(e) {
 
 ---
 
-## 현재시간 불러오기
+## 4. 현재시간 불러오기
 
 - html
 ```javaScript
@@ -243,7 +243,7 @@ btn.addEventListener('click',() => {
 
 ---
 
-## 스톱워치 만들기
+## 5. 스톱워치 만들기
 - html
 ```javaScript
 <body>
